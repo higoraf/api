@@ -70,26 +70,5 @@ function create(){
      
 }
 
-function readOne(){
- 
-    $query = "SELECT
-                u.id, u.name, u.description, u.price, u.created
-            FROM
-                " . $this->table_name . " u
-                
-            WHERE
-                p.id = ?
-            LIMIT
-                0,1";
- 
-    $stmt = $this->conn->prepare( $query );
- 
-    $stmt->bindParam(1, $this->id);
- 
-    $stmt->execute();
- 
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
- 
-}
 }
 ?>
